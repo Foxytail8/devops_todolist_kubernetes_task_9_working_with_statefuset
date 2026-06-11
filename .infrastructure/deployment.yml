@@ -47,22 +47,20 @@ spec:
             secretKeyRef:
               name: app-secret
               key: SECRET_KEY
-        - name: MYSQL_USER
+        - name: USER
           valueFrom:
            secretKeyRef:
-             name: mysql-secrets
-             key: MYSQL_USER
-        - name: MYSQL_PASSWORD
+             name: app-secret
+             key: USER
+        - name: PASSWORD
           valueFrom:
            secretKeyRef:
-             name: mysql-secrets
-             key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          value: app_db
+             name: app-secret
+             key: PASSWORD
         - name: HOST
           valueFrom:
            secretKeyRef:
-             name: mysql-secrets
+             name: app-secret
              key: HOST
         ports:
         - containerPort: 8080
